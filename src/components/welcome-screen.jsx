@@ -11,7 +11,6 @@ const WelcomeScreen = (props) => {
       <p className="welcome__text">Правила просты:</p>
       <ul className="welcome__rules-list">
         <li>Нужно ответить на все вопросы.</li>
-        {/* eslint-disable-next-line react/prop-types */}
         <li>Можно допустить {props.errorsCount} ошибки.</li>
       </ul>
       <p className="welcome__text">Удачи!</p>
