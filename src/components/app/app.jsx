@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import WelcomeScreen from "../welcome-screen/welcome-screen.jsx";
 
 const App = (props) => {
+
+  const startGameCallback = () => {};
   return (
-    <WelcomeScreen errorsCount={props.errorsCount}/>
+    <WelcomeScreen errorsCount={props.errorsCount} onWelcomeButtonClick={startGameCallback}/>
   );
 };
 
