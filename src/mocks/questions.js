@@ -2,10 +2,17 @@
 export const QUESTION_TYPE_ARTIST = `QUESTION_TYPE_ARTIST`;
 export const QUESTION_TYPE_GENRE = `QUESTION_TYPE_GENRE`;
 
+export const GENRE_INDIE_ROCK = `GENRE_INDIE_ROCK`;
+export const GENRE_BLUES = `GENRE_BLUES`;
+export const GENRE_JAZZ = `GENRE_JAZZ`;
+
 export const questionsMock = [
   {
     type: QUESTION_TYPE_ARTIST,
-    audioSource: ``,
+    artist: `Пелагея`,
+    audio: {
+      source: ``
+    },
     guesses: [
       {
         id: `1`,
@@ -25,6 +32,40 @@ export const questionsMock = [
     ]
   },
   {
-    type: QUESTION_TYPE_GENRE
+    type: QUESTION_TYPE_GENRE,
+    genre: GENRE_INDIE_ROCK,
+    guesses: [
+      {
+        id: `1`,
+        audio: {
+          source: ``
+        },
+        genre: GENRE_BLUES,
+        selected: false
+      },
+      {
+        id: `2`,
+        audio: {
+          source: ``
+        },
+        genre: GENRE_JAZZ,
+        selected: false
+      },
+      {
+        id: `3`,
+        audio: {
+          source: ``
+        },
+        genre: GENRE_INDIE_ROCK,
+        selected: false
+      },
+      {
+        id: `4`,
+        audio: {
+          source: ``
+        },
+        selected: false
+      }
+    ]
   }
 ];
