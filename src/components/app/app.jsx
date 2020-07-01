@@ -4,6 +4,7 @@ import WelcomeScreen from "../welcome-screen/welcome-screen.jsx";
 import QuestionArtist from "../question-artist/question-artist.jsx";
 import QuestionGenre from "../question-genre/question-genre.jsx";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
+import questions from "../../mocks/questions";
 
 const App = (props) => {
 
@@ -15,7 +16,7 @@ const App = (props) => {
           <WelcomeScreen errorsCount={props.errorsCount} onWelcomeButtonClick={startGameCallback}/>
         </Route>
         <Route exact path="/dev-artist">
-          <QuestionArtist/>
+          <QuestionArtist question={questions[0]} errorsCount={props.errorsCount}/>
         </Route>
         <Route exact path="/dev-genre">
           <QuestionGenre/>

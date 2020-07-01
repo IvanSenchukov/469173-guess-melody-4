@@ -1,6 +1,7 @@
 import React from 'React';
+import PropTypes from 'prop-types';
 
-const QuestionArtist = () => {
+const QuestionArtist = (props) => {
 
   return (
     <section className="game game--artist">
@@ -15,51 +16,65 @@ const QuestionArtist = () => {
         </svg>
 
         <div className="game__mistakes">
-          <div className="wrong"></div>
-          <div className="wrong"></div>
-          <div className="wrong"></div>
+          {Array.from(Array(props.errorsCount)).map((mistake, number) => {
+            return (
+              <div className="wrong" key={`mistake-${number}`}></div>
+            );
+          })}
         </div>
       </header>
 
       <section className="game__screen">
+
         <h2 className="game__title">Кто исполняет эту песню?</h2>
         <div className="game__track">
           <div className="track">
             <button className="track__button track__button--play" type="button"></button>
             <div className="track__status">
-              <audio></audio>
+              <audio src={props.question.audio.source}></audio>
             </div>
           </div>
         </div>
 
         <form className="game__artist">
-          <div className="artist">
-            <input className="artist__input visually-hidden" type="radio" name="answer" value="artist-1" id="answer-1"></input>
-            <label className="artist__name" htmlFor="answer-1">
-              <img className="artist__picture" src="http://placehold.it/134x134" alt="Пелагея"></img>
-              Пелагея
-            </label>
-          </div>
+          {props.question.guesses.map((guess, index) => {
 
-          <div className="artist">
-            <input className="artist__input visually-hidden" type="radio" name="answer" value="artist-2" id="answer-2"></input>
-            <label className="artist__name" htmlFor="answer-2">
-              <img className="artist__picture" src="http://placehold.it/134x134" alt="Пелагея"></img>
-              Краснознаменная дивизия имени моей бабушки
-            </label>
-          </div>
+            const answerId = `answer-${index}`;
+            const artistId = `artist-${index}`;
 
-          <div className="artist">
-            <input className="artist__input visually-hidden" type="radio" name="answer" value="artist-3" id="answer-3"></input>
-            <label className="artist__name" htmlFor="answer-3">
-              <img className="artist__picture" src="http://placehold.it/134x134" alt="Пелагея"></img>
-              Lorde
-            </label>
-          </div>
+            return (
+              <div className="artist" key={answerId}>
+                <input className="artist__input visually-hidden" type="radio" name="answer" value={artistId} id={answerId}></input>
+                <label className="artist__name" htmlFor={answerId}>
+                  <img className="artist__picture" src={guess.artistPicture} alt={guess.artistName}></img>
+                  {guess.artistName}
+                </label>
+              </div>
+            );
+          })}
         </form>
       </section>
     </section>
   );
+};
+
+QuestionArtist.propTypes = {
+  question: PropTypes.shape({
+    type: PropTypes.string.isRequired,
+    artist: PropTypes.string.isRequired,
+    audio: PropTypes.shape(
+        {
+          source: PropTypes.string.isRequired
+        }
+    ).isRequired,
+    guesses: PropTypes.arrayOf(PropTypes.shape(
+        {
+          artistName: PropTypes.string.isRequired,
+          artistPicture: PropTypes.string.isRequired
+        }
+    ))
+  }).isRequired,
+  errorsCount: PropTypes.number.isRequired
 };
 
 export default QuestionArtist;

@@ -4,7 +4,7 @@ import App from "./components/app/app.jsx";
 import questions from "./mocks/questions";
 
 const settings = {
-  errorsCount: 3
+  errorsCount: 4
 };
 
 ReactDOM.render(
