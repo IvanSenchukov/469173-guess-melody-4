@@ -33,7 +33,6 @@ export default [
     genre: GENRE_INDIE_ROCK,
     guesses: [
       {
-        id: `1`,
         audio: {
           source: ``
         },
@@ -41,7 +40,6 @@ export default [
         selected: false
       },
       {
-        id: `2`,
         audio: {
           source: ``
         },
@@ -49,18 +47,17 @@ export default [
         selected: false
       },
       {
-        id: `3`,
         audio: {
           source: ``
         },
         genre: GENRE_INDIE_ROCK,
-        selected: false
+        selected: true
       },
       {
-        id: `4`,
         audio: {
           source: ``
         },
+        genre: GENRE_INDIE_ROCK,
         selected: false
       }
     ]

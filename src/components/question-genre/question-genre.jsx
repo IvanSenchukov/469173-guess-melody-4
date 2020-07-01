@@ -1,6 +1,31 @@
 import React from 'React';
+import PropTypes from 'prop-types';
+import {GENRE_BLUES, GENRE_INDIE_ROCK, GENRE_JAZZ} from "../../mocks/questions";
 
-const QuestionGenre = () => {
+const QuestionGenre = (props) => {
+
+  function generateTitle(questionGenre) {
+
+    let genre;
+
+    switch (questionGenre) {
+      case GENRE_INDIE_ROCK : {
+        genre = `инди-рок`;
+        break;
+      }
+      case GENRE_BLUES: {
+        genre = `блюз`;
+        break;
+      }
+      case GENRE_JAZZ: {
+        genre = `джаз`;
+        break;
+      }
+    }
+
+    return `Выберите ${genre} треки`;
+  }
+
   return (
     <section className="game game--genre">
       <header className="game__header">
@@ -14,64 +39,58 @@ const QuestionGenre = () => {
         </svg>
 
         <div className="game__mistakes">
-          <div className="wrong"></div>
-          <div className="wrong"></div>
-          <div className="wrong"></div>
+          {Array.from(Array(props.errorsCount)).map((mistake, number) => {
+            return (
+              <div className="wrong" key={`mistake-${number}`}></div>
+            );
+          })}
         </div>
       </header>
 
       <section className="game__screen">
-        <h2 className="game__title">Выберите инди-рок треки</h2>
+        <h2 className="game__title">{generateTitle(props.question.genre)}</h2>
         <form className="game__tracks">
-          <div className="track">
-            <button className="track__button track__button--play" type="button"></button>
-            <div className="track__status">
-              <audio></audio>
-            </div>
-            <div className="game__answer">
-              <input className="game__input visually-hidden" type="checkbox" name="answer" value="answer-1" id="answer-1"></input>
-              <label className="game__check" htmlFor="answer-1">Отметить</label>
-            </div>
-          </div>
 
-          <div className="track">
-            <button className="track__button track__button--play" type="button"></button>
-            <div className="track__status">
-              <audio></audio>
-            </div>
-            <div className="game__answer">
-              <input className="game__input visually-hidden" type="checkbox" name="answer" value="answer-1" id="answer-2"></input>
-              <label className="game__check" htmlFor="answer-2">Отметить</label>
-            </div>
-          </div>
-
-          <div className="track">
-            <button className="track__button track__button--pause" type="button"></button>
-            <div className="track__status">
-              <audio></audio>
-            </div>
-            <div className="game__answer">
-              <input className="game__input visually-hidden" type="checkbox" name="answer" value="answer-1" id="answer-3"></input>
-              <label className="game__check" htmlFor="answer-3">Отметить</label>
-            </div>
-          </div>
-
-          <div className="track">
-            <button className="track__button track__button--play" type="button"></button>
-            <div className="track__status">
-              <audio></audio>
-            </div>
-            <div className="game__answer">
-              <input className="game__input visually-hidden" type="checkbox" name="answer" value="answer-1" id="answer-4"></input>
-              <label className="game__check" htmlFor="answer-4">Отметить</label>
-            </div>
-          </div>
+          {props.question.guesses.map((guess, index) => {
+            const answerId = `answer-${index}`;
+            return (
+              <div className="track" key={answerId}>
+                <button className="track__button track__button--play" type="button"></button>
+                <div className="track__status">
+                  <audio src={guess.audio.source}></audio>
+                </div>
+                <div className="game__answer">
+                  <input className="game__input visually-hidden" type="checkbox" checked={guess.selected} name="answer" value={answerId} id={answerId}></input>
+                  <label className="game__check" htmlFor={answerId}>Отметить</label>
+                </div>
+              </div>
+            );
+          })}
 
           <button className="game__submit button" type="submit">Ответить</button>
         </form>
       </section>
     </section>
   );
+};
+
+QuestionGenre.propTypes = {
+  question: PropTypes.shape(
+      {
+        type: PropTypes.string.isRequired,
+        genre: PropTypes.string.isRequired,
+        guesses: PropTypes.arrayOf(
+            PropTypes.shape({
+              genre: PropTypes.string.isRequired,
+              selected: PropTypes.bool.isRequired,
+              audio: PropTypes.shape({
+                source: PropTypes.string.isRequired
+              })
+            }).isRequired
+        ).isRequired
+      }
+  ).isRequired,
+  errorsCount: PropTypes.number.isRequired
 };
 
 export default QuestionGenre;

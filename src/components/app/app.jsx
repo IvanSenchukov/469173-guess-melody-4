@@ -19,7 +19,7 @@ const App = (props) => {
           <QuestionArtist question={questions[0]} errorsCount={props.errorsCount}/>
         </Route>
         <Route exact path="/dev-genre">
-          <QuestionGenre/>
+          <QuestionGenre question={questions[1]} errorsCount={props.errorsCount}/>
         </Route>
       </Switch>
     </BrowserRouter>
