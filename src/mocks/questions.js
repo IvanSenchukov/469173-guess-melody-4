@@ -6,7 +6,7 @@ export const GENRE_INDIE_ROCK = `GENRE_INDIE_ROCK`;
 export const GENRE_BLUES = `GENRE_BLUES`;
 export const GENRE_JAZZ = `GENRE_JAZZ`;
 
-export const questionsMock = [
+export default [
   {
     type: QUESTION_TYPE_ARTIST,
     artist: `Пелагея`,
