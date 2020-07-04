@@ -79,8 +79,9 @@ class QuestionGenre extends React.PureComponent {
             <button
               className="game__submit button"
               type="submit"
-              onClick={() => {
-                this.props.onAnswer(this.state.answers);
+              onClick={(event) => {
+                event.preventDefault();
+                this.props.onAnswer(this.props.question, this.state.answers);
               }}>Ответить</button>
           </form>
         </section>
