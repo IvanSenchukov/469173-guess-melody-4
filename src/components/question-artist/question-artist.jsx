@@ -44,7 +44,7 @@ const QuestionArtist = (props) => {
 
             return (
               <div className="artist" key={answerId}>
-                <input className="artist__input visually-hidden" type="radio" name="answer" value={artistId} id={answerId}></input>
+                <input className="artist__input visually-hidden" onClick={props.onAnswer} type="radio" name="answer" value={artistId} id={answerId}></input>
                 <label className="artist__name" htmlFor={answerId}>
                   <img className="artist__picture" src={guess.artistPicture} alt={guess.artistName}></img>
                   {guess.artistName}
@@ -74,7 +74,8 @@ QuestionArtist.propTypes = {
         }
     ))
   }).isRequired,
-  errorsCount: PropTypes.number.isRequired
+  errorsCount: PropTypes.number.isRequired,
+  onAnswer: PropTypes.func.isRequired
 };
 
 export default QuestionArtist;

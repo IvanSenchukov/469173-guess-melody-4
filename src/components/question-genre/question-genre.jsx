@@ -67,7 +67,7 @@ const QuestionGenre = (props) => {
             );
           })}
 
-          <button className="game__submit button" type="submit">Ответить</button>
+          <button className="game__submit button" type="submit" onClick={props.onAnswer}>Ответить</button>
         </form>
       </section>
     </section>
@@ -90,7 +90,8 @@ QuestionGenre.propTypes = {
         ).isRequired
       }
   ).isRequired,
-  errorsCount: PropTypes.number.isRequired
+  errorsCount: PropTypes.number.isRequired,
+  onAnswer: PropTypes.func.isRequired
 };
 
 export default QuestionGenre;
