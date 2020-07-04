@@ -44,7 +44,15 @@ const QuestionArtist = (props) => {
 
             return (
               <div className="artist" key={answerId}>
-                <input className="artist__input visually-hidden" onClick={props.onAnswer} type="radio" name="answer" value={artistId} id={answerId}></input>
+                <input
+                  value={artistId}
+                  id={answerId}
+                  className="artist__input visually-hidden"
+                  onClick={() => {
+                    props.onAnswer(props.question, guess.artistName);
+                  }}
+                  type="radio"
+                  name="answer"></input>
                 <label className="artist__name" htmlFor={answerId}>
                   <img className="artist__picture" src={guess.artistPicture} alt={guess.artistName}></img>
                   {guess.artistName}
