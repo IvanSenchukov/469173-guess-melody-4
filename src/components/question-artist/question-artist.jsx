@@ -1,4 +1,4 @@
-import React from 'React';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 const QuestionArtist = (props) => {
@@ -16,9 +16,9 @@ const QuestionArtist = (props) => {
         </svg>
 
         <div className="game__mistakes">
-          {Array.from(Array(props.errorsCount)).map((mistake, number) => {
+          {Array.from(Array(props.errorsCount)).map((mistake, index) => {
             return (
-              <div className="wrong" key={`mistake-${number}`}></div>
+              <div className="wrong" key={`mistake-${index}`}></div>
             );
           })}
         </div>

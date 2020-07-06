@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import QuestionArtist from "./question-artist";
-import {QUESTION_TYPE_ARTIST} from "../../mocks/questions";
+import QuestionArtist from "./question-artist.jsx";
+import {QUESTION_TYPE_ARTIST} from "../../mocks/questions.js";
 
 const mock = {
   type: QUESTION_TYPE_ARTIST,

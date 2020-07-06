@@ -47,10 +47,10 @@ class App extends React.Component {
             {renderScreen(this.state.currentStep, this.props.questions, this.props.errorsCount)}
           </Route>
           <Route exact path="/dev-artist">
-            <QuestionArtist question={questions[0]} errorsCount={this.props.errorsCount}/>
+            <QuestionArtist question={questions[0]} errorsCount={this.props.errorsCount} onAnswer={() => {}}/>
           </Route>
           <Route exact path="/dev-genre">
-            <QuestionGenre question={questions[1]} errorsCount={this.props.errorsCount}/>
+            <QuestionGenre question={questions[1]} errorsCount={this.props.errorsCount} onAnswer={() => {}}/>
           </Route>
         </Switch>
       </BrowserRouter>
