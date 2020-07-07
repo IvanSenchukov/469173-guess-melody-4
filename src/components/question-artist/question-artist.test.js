@@ -1,5 +1,5 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
+import React from "react";
+import renderer from "react-test-renderer";
 import QuestionArtist from "./question-artist.jsx";
 import {QUESTION_TYPE_ARTIST} from "../../mocks/questions.js";
 

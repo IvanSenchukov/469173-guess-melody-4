@@ -1,5 +1,5 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
+import React from "react";
+import renderer from "react-test-renderer";
 import QuestionGenre from "./question-genre.jsx";
 import {GENRE_BLUES, GENRE_INDIE_ROCK, GENRE_JAZZ, QUESTION_TYPE_GENRE} from "../../mocks/questions";
 

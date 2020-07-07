@@ -1,6 +1,6 @@
-import React from 'react';
-import Enzyme, {shallow} from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import React from "react";
+import Enzyme, {shallow} from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
 import QuestionArtist from "./question-artist.jsx";
 import {QUESTION_TYPE_ARTIST} from "../../mocks/questions.js";
 

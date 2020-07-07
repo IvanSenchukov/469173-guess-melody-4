@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import {GENRE_BLUES, GENRE_INDIE_ROCK, GENRE_JAZZ} from '../../mocks/questions.js';
+import React from "react";
+import PropTypes from "prop-types";
+import {GENRE_BLUES, GENRE_INDIE_ROCK, GENRE_JAZZ} from "../../mocks/questions.js";
 
 class QuestionGenre extends React.PureComponent {
 
